@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Liquibase Plus</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico"/>
+    <link href="semantic/dist/semantic.min.css" rel="stylesheet"/>
+    <link href="plugins/ionicons/css/ionicons.min.css" rel="stylesheet"/>
+    <link href="css/main.css" rel="stylesheet"/>
+    <link href="plugins/pacejs/pace.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="contextWrap">
+    <!--sidebar-->
+    <div class="ui sidebar vertical left menu overlay  borderless visible sidemenu inverted  grey"
+         style="-webkit-transition-duration: 0.1s; transition-duration: 0.1s;" data-color="grey">
+        <a class="item logo" href="index.html">
+            <img src="img/logo.png" alt="stagblogo"/><img src="img/thumblogo.png" alt="stagblogo" class="displaynone"/>
+        </a>
+        <div class="ui accordion inverted">
+            <div class="title item">
+                <i class="ion-flame titleIcon icon"></i>
+                <i class="dropdown icon"></i> 主页
+            </div>
+            <div class="content">
+                <a class="item" href="index.html">
+                    Index
+                </a>
+            </div>
+            <div class="title item">
+                <i class="ion-paintbrush titleIcon icon"></i>
+                <i class="dropdown icon"></i> 配置详情
+            </div>
+            <div class="content">
+                <a class="item" href="detail.html">
+                    Detail
+                </a>
+            </div>
+        </div>
+
+        <div class="ui dropdown item displaynone scrolling">
+            <span>主页</span>
+            <i class="ion-flame icon"></i>
+            <div class="menu">
+                <div class="header">
+                    主页
+                </div>
+                <div class="ui divider"></div>
+                <a class="item" href="index.html">
+                    Index
+                </a>
+            </div>
+        </div>
+        <div class="ui dropdown item displaynone scrolling">
+            <span>配置详情</span>
+            <i class="ion-paintbrush  icon"></i>
+            <div class="menu">
+                <div class="header">
+                    配置详情
+                </div>
+                <div class="ui divider"></div>
+                <a class="item" href="detail.html">
+                    Detail
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--sidebar-->
+    <div class="ui right sidebar">
+        <div style="text-align: center;padding: 25px">
+
+            <h5 class="ui header">导航栏颜色</h5>
+
+            <div>
+
+                <ul class="colorlist">
+                    <li>
+                        <a class="ui segment yellow inverted" data-addClass="inverted yellow">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment red inverted" data-addClass="inverted red">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment blue inverted" data-addClass="inverted blue">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment black inverted" data-addClass="inverted black">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment orange inverted" data-addClass="inverted orange">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment pink inverted" data-addClass="inverted pink">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment green inverted" data-addClass="inverted green">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment purple inverted" data-addClass="inverted purple">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment violet inverted" data-addClass="inverted violet">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment brown inverted" data-addClass="inverted brown">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment teal inverted" data-addClass="inverted teal">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment greenli inverted" data-addClass="inverted greenli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment grey inverted" data-addClass="inverted grey">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment redli inverted" data-addClass="inverted redli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment yellowli inverted" data-addClass="inverted yellowli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment blueli inverted" data-addClass="inverted blueli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment darkpurpleli inverted" data-addClass="inverted darkpurpleli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment darkorangeli inverted" data-addClass="inverted darkorangeli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment greenli2 inverted" data-addClass="inverted greenli2">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment pinkli inverted" data-addClass="inverted pinkli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment lightyellowli inverted" data-addClass="inverted lightyellowli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment darkli inverted" data-addClass="inverted darkli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment lightbrownli inverted" data-addClass="inverted lightbrownli">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <h5 class="ui header">侧边栏</h5>
+            <div>
+
+                <ul class="sidecolor">
+                    <li>
+                        <a class="ui segment yellow inverted" data-addClass="inverted yellow">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment red inverted" data-addClass="inverted red">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment blue inverted" data-addClass="inverted blue">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment black inverted" data-addClass="inverted black">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment orange inverted" data-addClass="inverted orange">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment pink inverted" data-addClass="inverted pink">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment green inverted" data-addClass="inverted green">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment purple inverted" data-addClass="inverted purple">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment violet inverted" data-addClass="inverted violet">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment brown inverted" data-addClass="inverted brown">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment teal inverted" data-addClass="inverted teal">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment greenli inverted" data-addClass="inverted greenli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment grey inverted" data-addClass="inverted grey">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment redli inverted" data-addClass="inverted redli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment yellowli inverted" data-addClass="inverted yellowli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment blueli inverted" data-addClass="inverted blueli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment darkpurpleli inverted" data-addClass="inverted darkpurpleli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment darkorangeli inverted" data-addClass="inverted darkorangeli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment greenli2 inverted" data-addClass="inverted greenli2">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment pinkli inverted" data-addClass="inverted pinkli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment lightyellowli inverted" data-addClass="inverted lightyellowli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment darkli inverted" data-addClass="inverted darkli">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ui segment lightbrownli inverted" data-addClass="inverted lightbrownli">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="pusher">
+        <!--navbar-->
+        <div class="navslide navwrap">
+            <div class="ui menu icon borderless grid" data-color="inverted white">
+                <a class="item labeled openbtn">
+                    <i class="ion-navicon-round big icon"></i>
+                </a>
+                <a class="item labeled expandit" onclick="toggleFullScreen(document.body)">
+                    <i class="ion-arrow-expand big icon"></i>
+                </a>
+
+                <div class="right menu colhidden">
+
+
+                    <a class="item labeled rightsidebar computer only">
+                        <i class="ion-wrench large icon"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="mainWrap navslide">
+            <div class="ui equal width left aligned padded grid stackable">
+
+                <div class="row">
+                    <div id="init_form" class="sixteen wide tablet eight wide computer column">
+                        <div class="ui segments">
+                            <div class="ui segment">
+                                <h3 class="ui header">
+                                    初始化 Liquibase
+                                </h3>
+                            </div>
+                            <div class="ui form segment form5">
+                                <div class="two fields">
+                                    <div class="field">
+                                        <label>Database</label>
+                                        <div class="ui selection dropdown" tabindex="0">
+                                            <input name="driver" id="driver" type="hidden">
+                                            <div class="default text">Database</div>
+                                            <i class="dropdown icon"></i>
+                                            <div class="menu" tabindex="-1">
+                                                <div class="item" data-value="org.postgresql.Driver">Postgres</div>
+                                                <div class="item"
+                                                     data-value="com.microsoft.sqlserver.jdbc.SQLServerDriver">SQLServer
+                                                </div>
+                                                <div class="item" data-value="com.mysql.cj.jdbc.Driver">Mysql</div>
+                                                <div class="item" data-value="org.h2.Driver">H2</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label>Url</label>
+                                        <input placeholder="url" id="url" name="url" type="text">
+                                    </div>
+                                </div>
+                                <div class="two fields">
+                                    <div class="field">
+                                        <label>Username</label>
+                                        <input placeholder="username" id="username" name="username" type="text">
+                                    </div>
+                                    <div class="field">
+                                        <label>Password</label>
+                                        <input placeholder="password" id="password" name="username" type="text">
+                                    </div>
+                                </div>
+                                <div id="a" class="ui blue submit button" onclick="initialize()">提交</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--jquery-->
+<script src="js/jquery-2.1.4.min.js"></script>
+<!--jquery-->
+<!--semantic-->
+<script src="semantic/dist/semantic.min.js"></script>
+<!--semantic-->
+<script src="plugins/cookie/js.cookie.js"></script>
+<script src="plugins/nicescrool/jquery.nicescroll.min.js"></script>
+
+<script data-pace-options='{ "ajax": false }' src="plugins/pacejs/pace.js"></script>
+<script src="js/customjs/custom-validation.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    function initialize() {
+        var cmd = {};
+        cmd["driver"] = $("#driver").val();
+        cmd["url"] = $("#url").val();
+        cmd["username"] = $("#username").val();
+        cmd["password"] = $("#password").val();
+        var driver = cmd.driver;
+        var url = cmd.url;
+        var username = cmd.username;
+        var password = cmd.password;
+        if (driver != null && driver !== "" &&
+            url != null && url !== "" &&
+            username != null && username !== "" &&
+            password != null && password !== "") {
+            $.ajax({
+                contentType: 'application/json;charset=utf-8',
+                url: "/command/init",
+                type: "post",
+                data: JSON.stringify(cmd),
+                success: function (data) {
+                    loadDetail()
+                },
+                error: function (data) {
+                    alert("配置有误!")
+                }
+
+            });
+        }
+    }
+
+    function loadDetail() {
+        window.location.href = "detail.html";
+    }
+
+</script>
+</body>
+</html>
