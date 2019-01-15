@@ -1,0 +1,1149 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="Z (generated)" id="1547190829009-1">
+        <createTable tableName="activity_logger">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="activity_logger_pkey"/>
+            </column>
+            <column name="business_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="comment" type="VARCHAR(255)"/>
+            <column name="ip" type="VARCHAR(255)"/>
+            <column name="location_code" type="VARCHAR(255)"/>
+            <column name="action" type="VARCHAR(255)"/>
+            <column name="category" type="VARCHAR(255)"/>
+            <column name="message" type="VARCHAR(255)"/>
+            <column name="operator" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="work_station" type="VARCHAR(255)"/>
+            <column name="business_date_idx" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-2">
+        <createTable tableName="app_parameter">
+            <column name="param_code" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="app_parameter_pkey"/>
+            </column>
+            <column name="param_value" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-3">
+        <createTable tableName="client_config">
+            <column name="app_id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="client_config_pkey"/>
+            </column>
+            <column name="app_access_secret" type="VARCHAR(255)"/>
+            <column name="app_name" type="VARCHAR(255)"/>
+            <column name="create_by" type="VARCHAR(255)"/>
+            <column name="create_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="enable" type="BOOLEAN"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="signature_key" type="VARCHAR(255)"/>
+            <column name="update_by" type="VARCHAR(255)"/>
+            <column name="update_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="opt_lock" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-4">
+        <createTable tableName="consumption_daily">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="consumption_daily_pkey"/>
+            </column>
+            <column name="block_code" type="VARCHAR(255)"/>
+            <column name="business_date" type="date"/>
+            <column name="confirmation_id" type="VARCHAR(255)"/>
+            <column name="count" type="INTEGER"/>
+            <column name="group_name" type="VARCHAR(255)"/>
+            <column name="guest_type" type="VARCHAR(255)"/>
+            <column name="is_manual" type="BOOLEAN"/>
+            <column name="location_code" type="VARCHAR(255)"/>
+            <column name="location_name" type="VARCHAR(255)"/>
+            <column name="package_code" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="resv_name_id" type="VARCHAR(255)"/>
+            <column name="revoked" type="BOOLEAN"/>
+            <column name="room_no" type="VARCHAR(255)"/>
+            <column name="transaction_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="article_no" type="VARCHAR(255)"/>
+            <column name="check_no" type="VARCHAR(255)"/>
+            <column name="clear_text" type="VARCHAR(255)"/>
+            <column name="consumption_daily_id" type="VARCHAR(255)"/>
+            <column name="covers" type="VARCHAR(255)"/>
+            <column name="credit_limit_override_flag" type="VARCHAR(255)"/>
+            <column name="cross_reference_data" type="VARCHAR(255)"/>
+            <column name="dialed_digits" type="VARCHAR(255)"/>
+            <column name="discount1" type="VARCHAR(255)"/>
+            <column name="discount2" type="VARCHAR(255)"/>
+            <column name="discount3" type="VARCHAR(255)"/>
+            <column name="discount4" type="VARCHAR(255)"/>
+            <column name="discount5" type="VARCHAR(255)"/>
+            <column name="discount6" type="VARCHAR(255)"/>
+            <column name="discount7" type="VARCHAR(255)"/>
+            <column name="discount8" type="VARCHAR(255)"/>
+            <column name="discount9" type="VARCHAR(255)"/>
+            <column name="guest_name" type="VARCHAR(255)"/>
+            <column name="guest_title" type="VARCHAR(255)"/>
+            <column name="maximum_guest" type="VARCHAR(255)"/>
+            <column name="number_of_articles" type="VARCHAR(255)"/>
+            <column name="posting_call_type" type="VARCHAR(255)"/>
+            <column name="posting_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="posting_inquiry" type="VARCHAR(255)"/>
+            <column name="posting_sequence_no" type="INTEGER"/>
+            <column name="posting_type" type="VARCHAR(255)"/>
+            <column name="sales_outlet" type="VARCHAR(255)"/>
+            <column name="service_charge" type="VARCHAR(255)"/>
+            <column name="serving_time" type="VARCHAR(255)"/>
+            <column name="subtotal1" type="VARCHAR(255)"/>
+            <column name="subtotal2" type="VARCHAR(255)"/>
+            <column name="subtotal3" type="VARCHAR(255)"/>
+            <column name="subtotal4" type="VARCHAR(255)"/>
+            <column name="subtotal5" type="VARCHAR(255)"/>
+            <column name="subtotal6" type="VARCHAR(255)"/>
+            <column name="subtotal7" type="VARCHAR(255)"/>
+            <column name="subtotal8" type="VARCHAR(255)"/>
+            <column name="subtotal9" type="VARCHAR(255)"/>
+            <column name="table_no" type="VARCHAR(255)"/>
+            <column name="tax1" type="VARCHAR(255)"/>
+            <column name="tax2" type="VARCHAR(255)"/>
+            <column name="tax3" type="VARCHAR(255)"/>
+            <column name="tax4" type="VARCHAR(255)"/>
+            <column name="tax5" type="VARCHAR(255)"/>
+            <column name="tax6" type="VARCHAR(255)"/>
+            <column name="tax7" type="VARCHAR(255)"/>
+            <column name="tax8" type="VARCHAR(255)"/>
+            <column name="tax9" type="VARCHAR(255)"/>
+            <column name="time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="tip" type="VARCHAR(255)"/>
+            <column name="total_posting_amount" type="numeric(19, 2)"/>
+            <column name="track2" type="VARCHAR(255)"/>
+            <column name="userid" type="VARCHAR(255)"/>
+            <column name="workstationid" type="VARCHAR(255)"/>
+            <column name="work_station" type="VARCHAR(255)"/>
+            <column name="source_type" type="VARCHAR(255)"/>
+            <column name="revoke_person" type="VARCHAR(255)"/>
+            <column name="revoke_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="ifc_payment_method" type="VARCHAR(255)"/>
+            <column name="ifc_price" type="numeric(19, 2)"/>
+            <column name="ifc_revenue_center_code" type="VARCHAR(255)"/>
+            <column name="ifc_sales_item_code" type="VARCHAR(255)"/>
+            <column name="ifc_serving_period_code" type="VARCHAR(255)"/>
+            <column name="ifc_work_station_id" type="VARCHAR(255)"/>
+            <column name="year" type="VARCHAR(255)"/>
+            <column name="year_str" type="VARCHAR(255)"/>
+            <column name="resv_pkg_daily_id" type="VARCHAR(255)"/>
+            <column name="app_id" type="VARCHAR(255)"/>
+            <column name="member_level_desc" type="VARCHAR(255)"/>
+            <column name="vip_status" type="VARCHAR(255)"/>
+            <column name="vip_status_desc" type="VARCHAR(600)"/>
+            <column name="consumption_category" type="VARCHAR(255)"/>
+            <column name="operator" type="VARCHAR(255)"/>
+            <column name="adults" type="INTEGER"/>
+            <column name="arrival_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="cancel" type="BOOLEAN"/>
+            <column name="cancel_date_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="cancel_operator" type="VARCHAR(255)"/>
+            <column name="children" type="INTEGER"/>
+            <column name="company" type="VARCHAR(255)"/>
+            <column name="create_date_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="departure_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="guest_alt_first_name" type="VARCHAR(255)"/>
+            <column name="guest_alt_last_name" type="VARCHAR(255)"/>
+            <column name="guest_email" type="VARCHAR(255)"/>
+            <column name="guest_first_name" type="VARCHAR(255)"/>
+            <column name="guest_last_name" type="VARCHAR(255)"/>
+            <column name="is_primary_yn" type="VARCHAR(255)"/>
+            <column name="language" type="VARCHAR(255)"/>
+            <column name="master_share" type="VARCHAR(255)"/>
+            <column name="member_level" type="VARCHAR(255)"/>
+            <column name="nationality" type="VARCHAR(255)"/>
+            <column name="package_type" type="VARCHAR(255)"/>
+            <column name="rate_code" type="VARCHAR(255)"/>
+            <column name="resv_status" type="VARCHAR(255)"/>
+            <column name="room_class" type="VARCHAR(255)"/>
+            <column name="room_type" type="VARCHAR(255)"/>
+            <column name="share_id" type="VARCHAR(255)"/>
+            <column name="shared_yn" type="VARCHAR(255)"/>
+            <column name="tenant_id" type="VARCHAR(255)"/>
+            <column name="terminal_id" type="VARCHAR(255)"/>
+            <column name="transaction_operator" type="VARCHAR(255)"/>
+            <column name="update_date_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-5">
+        <createTable tableName="dog">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="dog_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-6">
+        <createTable tableName="external_datasource">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="external_datasource_pkey"/>
+            </column>
+            <column name="db_type" type="VARCHAR(255)"/>
+            <column name="jdbc_password" type="VARCHAR(255)"/>
+            <column name="jdbc_url" type="VARCHAR(255)"/>
+            <column name="jdbc_username" type="VARCHAR(255)"/>
+            <column name="source_type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-7">
+        <createTable tableName="hotel">
+            <column name="resort" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="hotel_pkey"/>
+            </column>
+            <column name="brand" type="VARCHAR(255)"/>
+            <column name="chain_code" type="VARCHAR(255)"/>
+            <column name="chain_name" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="hotel_name" type="VARCHAR(255)"/>
+            <column name="hotel_type" type="VARCHAR(255)"/>
+            <column name="start_rated" type="VARCHAR(255)"/>
+            <column name="telephone" type="VARCHAR(255)"/>
+            <column name="obj_version" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="access_key" type="VARCHAR(255)"/>
+            <column name="access_secret" type="VARCHAR(255)"/>
+            <column name="jdbc_password" type="VARCHAR(255)"/>
+            <column name="jdbc_url" type="VARCHAR(255)"/>
+            <column name="jdbc_username" type="VARCHAR(255)"/>
+            <column name="read_file_path" type="VARCHAR(255)"/>
+            <column name="source_type" type="VARCHAR(255)"/>
+            <column name="adapter_access_key" type="VARCHAR(255)"/>
+            <column name="adapter_access_secret" type="VARCHAR(255)"/>
+            <column name="room_card_id_column" type="VARCHAR(255)"/>
+            <column name="enable" type="BOOLEAN"/>
+            <column name="inhouse_guest_check_includ_currentday_departure" type="BOOLEAN"/>
+            <column name="license" type="VARCHAR(2048)"/>
+            <column name="license_expire_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="show_company" type="BOOLEAN"/>
+            <column name="show_first_name" type="BOOLEAN"/>
+            <column name="show_guest_email" type="BOOLEAN"/>
+            <column name="show_guest_title" type="BOOLEAN"/>
+            <column name="show_memberlevel_desc" type="BOOLEAN"/>
+            <column name="show_ratecode" type="BOOLEAN"/>
+            <column name="show_vip_status" type="BOOLEAN"/>
+            <column name="show_vip_status_desc" type="BOOLEAN"/>
+            <column name="client_auth_is_require" type="BOOLEAN"/>
+            <column name="client_auth_login_description" type="VARCHAR(255)"/>
+            <column name="show_location_balance" type="BOOLEAN"/>
+            <column name="star_rated" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-8">
+        <createTable tableName="ifc_posting_rule">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="ifc_posting_rule_pkey"/>
+            </column>
+            <column name="clear_text" type="VARCHAR(255)"/>
+            <column name="ifc_discount_type" type="VARCHAR(255)"/>
+            <column name="ifc_discount_value" type="VARCHAR(255)"/>
+            <column name="ifc_payment_method" type="VARCHAR(255)"/>
+            <column name="ifc_service_charge" type="VARCHAR(255)"/>
+            <column name="ifc_subtotal_type" type="VARCHAR(255)"/>
+            <column name="ifc_subtotal_value" type="VARCHAR(255)"/>
+            <column name="ifc_tax_type" type="VARCHAR(255)"/>
+            <column name="ifc_tax_value" type="VARCHAR(255)"/>
+            <column name="ifc_tip" type="VARCHAR(255)"/>
+            <column name="ifc_total_amount" type="VARCHAR(255)"/>
+            <column name="location_code" type="VARCHAR(255)"/>
+            <column name="package_code" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="serving_period_code" type="VARCHAR(255)"/>
+            <column name="user_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-9">
+        <createTable tableName="ifc_transaction">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="ifc_transaction_pkey"/>
+            </column>
+            <column name="clear_text" type="VARCHAR(255)"/>
+            <column name="confirmation_id" type="VARCHAR(255)"/>
+            <column name="consumption_daily_id" type="VARCHAR(255)"/>
+            <column name="ifc_bill_date" type="VARCHAR(255)"/>
+            <column name="ifc_bill_time" type="VARCHAR(255)"/>
+            <column name="ifc_check_number" type="VARCHAR(255)"/>
+            <column name="ifc_covers" type="VARCHAR(255)"/>
+            <column name="ifc_discount_1" type="VARCHAR(255)"/>
+            <column name="ifc_discount_2" type="VARCHAR(255)"/>
+            <column name="ifc_discount_3" type="VARCHAR(255)"/>
+            <column name="ifc_discount_4" type="VARCHAR(255)"/>
+            <column name="ifc_discount_5" type="VARCHAR(255)"/>
+            <column name="ifc_discount_6" type="VARCHAR(255)"/>
+            <column name="ifc_discount_7" type="VARCHAR(255)"/>
+            <column name="ifc_discount_8" type="VARCHAR(255)"/>
+            <column name="ifc_discount_9" type="VARCHAR(255)"/>
+            <column name="ifc_guest_name" type="VARCHAR(255)"/>
+            <column name="ifc_payment_method" type="VARCHAR(255)"/>
+            <column name="ifc_posting_status" type="VARCHAR(255)"/>
+            <column name="ifc_sales_outlet" type="VARCHAR(255)"/>
+            <column name="ifc_service_charge" type="VARCHAR(255)"/>
+            <column name="ifc_service_time" type="VARCHAR(255)"/>
+            <column name="ifc_subtotal_1" type="VARCHAR(255)"/>
+            <column name="ifc_subtotal_2" type="VARCHAR(255)"/>
+            <column name="ifc_subtotal_3" type="VARCHAR(255)"/>
+            <column name="ifc_subtotal_4" type="VARCHAR(255)"/>
+            <column name="ifc_subtotal_5" type="VARCHAR(255)"/>
+            <column name="ifc_subtotal_6" type="VARCHAR(255)"/>
+            <column name="ifc_subtotal_7" type="VARCHAR(255)"/>
+            <column name="ifc_subtotal_8" type="VARCHAR(255)"/>
+            <column name="ifc_subtotal_9" type="VARCHAR(255)"/>
+            <column name="ifc_tax_1" type="VARCHAR(255)"/>
+            <column name="ifc_tax_2" type="VARCHAR(255)"/>
+            <column name="ifc_tax_3" type="VARCHAR(255)"/>
+            <column name="ifc_tax_4" type="VARCHAR(255)"/>
+            <column name="ifc_tax_5" type="VARCHAR(255)"/>
+            <column name="ifc_tax_6" type="VARCHAR(255)"/>
+            <column name="ifc_tax_7" type="VARCHAR(255)"/>
+            <column name="ifc_tax_8" type="VARCHAR(255)"/>
+            <column name="ifc_tax_9" type="VARCHAR(255)"/>
+            <column name="ifc_tip" type="VARCHAR(255)"/>
+            <column name="ifc_total_amount" type="VARCHAR(255)"/>
+            <column name="ifc_transaction_type" type="VARCHAR(255)"/>
+            <column name="ifc_workstation_id" type="VARCHAR(255)"/>
+            <column name="post_sequence_number" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="resv_name_id" type="VARCHAR(255)"/>
+            <column name="room_no" type="VARCHAR(255)"/>
+            <column name="transaction_datetime" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_id" type="VARCHAR(255)"/>
+            <column name="year_str" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-10">
+        <createTable tableName="jwt_appid">
+            <column name="app_id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="jwt_appid_pkey"/>
+            </column>
+            <column name="app_name" type="VARCHAR(255)"/>
+            <column name="create_by" type="VARCHAR(255)"/>
+            <column name="create_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="enable" type="BOOLEAN"/>
+            <column name="secret" type="BYTEA"/>
+            <column name="update_by" type="VARCHAR(255)"/>
+            <column name="update_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="opt_lock" type="INTEGER"/>
+            <column name="location_id" type="VARCHAR(255)"/>
+            <column name="app_access_secret" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="signature_key" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-11">
+        <createTable tableName="jwt_location">
+            <column name="app_id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="jwt_location_pkey"/>
+            </column>
+            <column name="location_id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="jwt_location_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-12">
+        <createTable tableName="location">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="location_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="location_category" type="VARCHAR(255)"/>
+            <column name="location_class" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="version" type="INTEGER"/>
+            <column name="work_station" type="VARCHAR(255)"/>
+            <column name="ifc_default_revenue_center_code" type="VARCHAR(255)"/>
+            <column name="ifc_default_work_station_id" type="VARCHAR(255)"/>
+            <column name="consumer_key" type="VARCHAR(255)"/>
+            <column name="consumer_secret" type="VARCHAR(255)"/>
+            <column name="enable_order" type="BOOLEAN"/>
+            <column name="entrance_switch" type="BOOLEAN"/>
+            <column name="order_package_code" type="VARCHAR(255)"/>
+            <column name="order_sys_url" type="VARCHAR(255)"/>
+            <column name="outlet_code" type="VARCHAR(255)"/>
+            <column name="secret_key" type="VARCHAR(255)"/>
+            <column name="shop_code" type="VARCHAR(255)"/>
+            <column name="table_no" type="VARCHAR(255)"/>
+            <column name="template_content" type="VARCHAR(1024)"/>
+            <column name="image_first" type="OID"/>
+            <column name="enable_print" type="BOOLEAN"/>
+            <column name="enable_ifc_posting" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-13">
+        <createTable tableName="location_order_item">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="location_order_item_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="description_en" type="VARCHAR(255)"/>
+            <column name="description_zh" type="VARCHAR(255)"/>
+            <column name="price" type="numeric(19, 2)"/>
+            <column name="location_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-14">
+        <createTable tableName="location_package">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="location_package_pkey"/>
+            </column>
+            <column name="belong_this_location_yn" type="BOOLEAN"/>
+            <column name="ifc_payment_method" type="VARCHAR(255)"/>
+            <column name="ifc_price" type="numeric(19, 2)"/>
+            <column name="ifc_revenue_center_code" type="VARCHAR(255)"/>
+            <column name="ifc_sales_item_code" type="VARCHAR(255)"/>
+            <column name="ifc_serving_period_code" type="VARCHAR(255)"/>
+            <column name="ifc_work_station_id" type="VARCHAR(255)"/>
+            <column name="package_code" type="VARCHAR(255)"/>
+            <column name="prepare_yn" type="BOOLEAN"/>
+            <column name="serving_period_code" type="VARCHAR(255)"/>
+            <column name="sort_number" type="INTEGER"/>
+            <column name="location_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-15">
+        <createTable tableName="location_packages">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="location_packages_pkey"/>
+            </column>
+            <column name="belong_this_location_yn" type="BOOLEAN"/>
+            <column name="package_code" type="VARCHAR(255)"/>
+            <column name="prepare_yn" type="BOOLEAN"/>
+            <column name="sort_number" type="INTEGER"/>
+            <column name="location_id" type="VARCHAR(255)"/>
+            <column name="ifc_payment_method" type="VARCHAR(255)"/>
+            <column name="ifc_price" type="numeric(19, 2)"/>
+            <column name="ifc_revenue_center_code" type="VARCHAR(255)"/>
+            <column name="ifc_sales_item_code" type="VARCHAR(255)"/>
+            <column name="ifc_serving_period_code" type="VARCHAR(255)"/>
+            <column name="ifc_work_station_id" type="VARCHAR(255)"/>
+            <column name="serving_period_code" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-16">
+        <createTable tableName="location_serving_period">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="location_serving_period_pkey"/>
+            </column>
+            <column name="ifc_serving_period_code" type="VARCHAR(255)"/>
+            <column name="serving_period_code" type="VARCHAR(255)"/>
+            <column name="serving_period_desc" type="VARCHAR(255)"/>
+            <column name="sort_number" type="INTEGER"/>
+            <column name="location_id" type="VARCHAR(255)"/>
+            <column name="begin_time" type="TIME WITHOUT TIME ZONE"/>
+            <column name="end_time" type="TIME WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-17">
+        <createTable tableName="member_level_setting">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="member_level_setting_pkey"/>
+            </column>
+            <column name="color" type="VARCHAR(255)"/>
+            <column name="member_level_desc" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-18">
+        <createTable tableName="order_consumption">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="order_consumption_pkey"/>
+            </column>
+            <column name="app_id" type="VARCHAR(255)"/>
+            <column name="business_date" type="date"/>
+            <column name="check_no" type="VARCHAR(255)"/>
+            <column name="create_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="location_code" type="VARCHAR(255)"/>
+            <column name="order_discounts" type="VARCHAR(255)"/>
+            <column name="order_items" type="VARCHAR(255)"/>
+            <column name="package_code" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="room_no" type="VARCHAR(255)"/>
+            <column name="table_no" type="VARCHAR(255)"/>
+            <column name="transaction_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="update_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_name" type="VARCHAR(255)"/>
+            <column name="year_str" type="VARCHAR(255)"/>
+            <column name="guest_type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-19">
+        <createTable tableName="package">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="package_pkey"/>
+            </column>
+            <column name="calc_rule" type="VARCHAR(255)"/>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="consume_next_day" type="BOOLEAN"/>
+            <column name="count" type="INTEGER"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="numeric(19, 2)"/>
+            <column name="quantity_allowance" type="INTEGER"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="_version" type="INTEGER"/>
+            <column name="package_group" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-20">
+        <createTable tableName="package_group">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="package_group_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-21">
+        <createTable tableName="package_setting">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="package_setting_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="consume_next_day" type="BOOLEAN"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="numeric(19, 2)"/>
+            <column name="quantity_allowance" type="INTEGER"/>
+            <column name="resort" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="_version" type="INTEGER"/>
+            <column name="package_group" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-22">
+        <createTable tableName="permissions">
+            <column name="role_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="permission" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-23">
+        <createTable tableName="posting_billing_daily">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="posting_billing_daily_pkey"/>
+            </column>
+            <column name="article_no" type="VARCHAR(255)"/>
+            <column name="block_code" type="VARCHAR(255)"/>
+            <column name="business_date" type="date"/>
+            <column name="check_no" type="VARCHAR(255)"/>
+            <column name="clear_text" type="VARCHAR(255)"/>
+            <column name="confirmation_id" type="VARCHAR(255)"/>
+            <column name="consumption_daily_id" type="VARCHAR(255)"/>
+            <column name="count" type="INTEGER"/>
+            <column name="covers" type="VARCHAR(255)"/>
+            <column name="credit_limit_override_flag" type="VARCHAR(255)"/>
+            <column name="cross_reference_data" type="VARCHAR(255)"/>
+            <column name="dialed_digits" type="VARCHAR(255)"/>
+            <column name="discount1" type="VARCHAR(255)"/>
+            <column name="discount2" type="VARCHAR(255)"/>
+            <column name="discount3" type="VARCHAR(255)"/>
+            <column name="discount4" type="VARCHAR(255)"/>
+            <column name="discount5" type="VARCHAR(255)"/>
+            <column name="discount6" type="VARCHAR(255)"/>
+            <column name="discount7" type="VARCHAR(255)"/>
+            <column name="discount8" type="VARCHAR(255)"/>
+            <column name="discount9" type="VARCHAR(255)"/>
+            <column name="group_name" type="VARCHAR(255)"/>
+            <column name="guest_name" type="VARCHAR(255)"/>
+            <column name="guest_title" type="VARCHAR(255)"/>
+            <column name="guest_type" type="VARCHAR(255)"/>
+            <column name="is_manual" type="BOOLEAN"/>
+            <column name="location_code" type="VARCHAR(255)"/>
+            <column name="location_name" type="VARCHAR(255)"/>
+            <column name="maximum_guest" type="VARCHAR(255)"/>
+            <column name="number_of_articles" type="VARCHAR(255)"/>
+            <column name="package_code" type="VARCHAR(255)"/>
+            <column name="payment_method" type="VARCHAR(255)"/>
+            <column name="posting_call_type" type="VARCHAR(255)"/>
+            <column name="posting_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="posting_inquiry" type="VARCHAR(255)"/>
+            <column name="posting_sequence_no" type="INTEGER"/>
+            <column name="posting_type" type="VARCHAR(255)"/>
+            <column name="price" type="numeric(19, 2)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="resv_name_id" type="VARCHAR(255)"/>
+            <column name="room_no" type="VARCHAR(255)"/>
+            <column name="sales_outlet" type="VARCHAR(255)"/>
+            <column name="sales_outlet_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="service_charge" type="VARCHAR(255)"/>
+            <column name="serving_time" type="VARCHAR(255)"/>
+            <column name="subtotal1" type="VARCHAR(255)"/>
+            <column name="subtotal2" type="VARCHAR(255)"/>
+            <column name="subtotal3" type="VARCHAR(255)"/>
+            <column name="subtotal4" type="VARCHAR(255)"/>
+            <column name="subtotal5" type="VARCHAR(255)"/>
+            <column name="subtotal6" type="VARCHAR(255)"/>
+            <column name="subtotal7" type="VARCHAR(255)"/>
+            <column name="subtotal8" type="VARCHAR(255)"/>
+            <column name="subtotal9" type="VARCHAR(255)"/>
+            <column name="table_no" type="VARCHAR(255)"/>
+            <column name="tax1" type="VARCHAR(255)"/>
+            <column name="tax2" type="VARCHAR(255)"/>
+            <column name="tax3" type="VARCHAR(255)"/>
+            <column name="tax4" type="VARCHAR(255)"/>
+            <column name="tax5" type="VARCHAR(255)"/>
+            <column name="tax6" type="VARCHAR(255)"/>
+            <column name="tax7" type="VARCHAR(255)"/>
+            <column name="tax8" type="VARCHAR(255)"/>
+            <column name="tax9" type="VARCHAR(255)"/>
+            <column name="time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="tip" type="VARCHAR(255)"/>
+            <column name="total_posting_amount" type="numeric(19, 2)"/>
+            <column name="track2" type="VARCHAR(255)"/>
+            <column name="transaction_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="userid" type="VARCHAR(255)"/>
+            <column name="workstationid" type="VARCHAR(255)"/>
+            <column name="answer_status" type="VARCHAR(255)"/>
+            <column name="create_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="posting_status" type="VARCHAR(255)"/>
+            <column name="posting_time" type="TIME WITHOUT TIME ZONE"/>
+            <column name="update_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="workstation_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-24">
+        <createTable tableName="product">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="product_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-25">
+        <createTable tableName="product_permission">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="product_permission_pkey"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="permission" type="VARCHAR(255)"/>
+            <column name="product_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-26">
+        <createTable tableName="reservation_daily">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="reservation_daily_pkey"/>
+            </column>
+            <column name="adults" type="INTEGER"/>
+            <column name="arrival_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="block_code" type="VARCHAR(255)"/>
+            <column name="business_date" type="date"/>
+            <column name="children" type="INTEGER"/>
+            <column name="confirmation_id" type="VARCHAR(255)"/>
+            <column name="create_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="departure_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="group_name" type="VARCHAR(255)"/>
+            <column name="guest_email" type="VARCHAR(255)"/>
+            <column name="guest_name" type="VARCHAR(255)"/>
+            <column name="guest_title" type="VARCHAR(255)"/>
+            <column name="is_primary_yn" type="VARCHAR(255)"/>
+            <column name="master_share" type="VARCHAR(255)"/>
+            <column name="member_level_desc" type="VARCHAR(255)"/>
+            <column name="rate_code" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="resv_name_id" type="VARCHAR(255)"/>
+            <column name="room_class" type="VARCHAR(255)"/>
+            <column name="room_no" type="VARCHAR(255)"/>
+            <column name="room_type" type="VARCHAR(255)"/>
+            <column name="share_id" type="VARCHAR(255)"/>
+            <column name="shared_yn" type="VARCHAR(255)"/>
+            <column name="source_type" type="VARCHAR(255)"/>
+            <column name="update_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="vip_status" type="VARCHAR(255)"/>
+            <column name="vip_status_desc" type="VARCHAR(600)"/>
+            <column name="year" type="VARCHAR(255)"/>
+            <column name="expiry_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="trace_no" type="VARCHAR(255)"/>
+            <column name="track_no" type="VARCHAR(255)"/>
+            <column name="year_str" type="VARCHAR(255)"/>
+            <column name="room_card_id" type="VARCHAR(255)"/>
+            <column name="company" type="VARCHAR(255)"/>
+            <column name="resv_status" type="VARCHAR(255)"/>
+            <column name="guest_alt_first_name" type="VARCHAR(255)"/>
+            <column name="guest_alt_last_name" type="VARCHAR(255)"/>
+            <column name="guest_first_name" type="VARCHAR(255)"/>
+            <column name="guest_last_name" type="VARCHAR(255)"/>
+            <column name="language" type="VARCHAR(255)"/>
+            <column name="nationality" type="VARCHAR(255)"/>
+            <column name="create_date_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="member_level" type="VARCHAR(255)"/>
+            <column name="tenant_id" type="VARCHAR(255)"/>
+            <column name="update_date_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-27">
+        <createTable tableName="reservation_daily_package">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="reservation_daily_package_pkey"/>
+            </column>
+            <column name="business_date" type="date"/>
+            <column name="confirmation_id" type="VARCHAR(255)"/>
+            <column name="count" type="INTEGER"/>
+            <column name="create_date_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="guest_type" type="VARCHAR(255)"/>
+            <column name="package_code" type="VARCHAR(255)"/>
+            <column name="package_type" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="resv_name_id" type="VARCHAR(255)"/>
+            <column name="tenant_id" type="VARCHAR(255)"/>
+            <column name="update_date_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="year_str" type="VARCHAR(255)"/>
+            <column name="reservation_daily_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-28">
+        <createTable tableName="reservation_ifc_key">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="reservation_ifc_key_pkey"/>
+            </column>
+            <column name="create_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="expiry_date" type="date"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="resv_name_id" type="VARCHAR(255)"/>
+            <column name="room_no" type="VARCHAR(255)"/>
+            <column name="track2" type="VARCHAR(255)"/>
+            <column name="update_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="create_date_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="tenant_id" type="VARCHAR(255)"/>
+            <column name="update_date_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-29">
+        <createTable tableName="reservation_package_daily">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="reservation_package_daily_pkey"/>
+            </column>
+            <column name="business_date" type="date"/>
+            <column name="confirmation_id" type="VARCHAR(255)"/>
+            <column name="count" type="INTEGER"/>
+            <column name="create_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="guest_type" type="VARCHAR(255)"/>
+            <column name="package_code" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="resv_name_id" type="VARCHAR(255)"/>
+            <column name="source_type" type="VARCHAR(255)"/>
+            <column name="update_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="reservation_daily_id" type="VARCHAR(255)"/>
+            <column name="year" type="VARCHAR(255)"/>
+            <column name="year_str" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-30">
+        <createTable tableName="reservation_room_card_id">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="reservation_room_card_id_pkey"/>
+            </column>
+            <column name="create_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="resv_name_id" type="VARCHAR(255)"/>
+            <column name="room_card_id" type="VARCHAR(255)"/>
+            <column name="room_no" type="VARCHAR(255)"/>
+            <column name="update_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="create_date_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="tenant_id" type="VARCHAR(255)"/>
+            <column name="update_date_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-31">
+        <createTable tableName="roles">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="roles_pkey"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="opt_lock" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-32">
+        <createTable tableName="room_translations">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="room_translations_pkey"/>
+            </column>
+            <column name="create_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="line_num" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)"/>
+            <column name="room_no" type="VARCHAR(255)"/>
+            <column name="update_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-33">
+        <createTable tableName="school">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_school"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="age" type="INTEGER"/>
+            <column name="title" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-34">
+        <createTable tableName="security_permissions">
+            <column name="role_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="permissions" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-35">
+        <createTable tableName="security_role">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="security_role_pkey"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="opt_lock" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-36">
+        <createTable tableName="security_user">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="security_user_pkey"/>
+            </column>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="employee_id" type="VARCHAR(255)"/>
+            <column name="expiration_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_login" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="mobile" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="real_name" type="VARCHAR(255)"/>
+            <column name="opt_lock" type="INTEGER"/>
+            <column name="resort" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-37">
+        <createTable tableName="security_user_location">
+            <column name="users_id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="security_user_location_pkey"/>
+            </column>
+            <column name="location_id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="security_user_location_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-38">
+        <createTable tableName="security_user_roles">
+            <column name="users_id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="security_user_roles_pkey"/>
+            </column>
+            <column name="roles_id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="security_user_roles_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-39">
+        <createTable tableName="system_configuration">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="system_configuration_pkey"/>
+            </column>
+            <column name="group_code" type="VARCHAR(255)"/>
+            <column name="group_logo" type="BYTEA"/>
+            <column name="group_name" type="VARCHAR(255)"/>
+            <column name="home_title" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-40">
+        <createTable tableName="tenant">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="tenant_pkey"/>
+            </column>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="contacts_email" type="VARCHAR(255)"/>
+            <column name="contacts_phone" type="VARCHAR(255)"/>
+            <column name="contacts_telephone" type="VARCHAR(255)"/>
+            <column name="contacts_user" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="tenant_status" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-41">
+        <createTable tableName="tenant_credential">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="tenant_credential_pkey"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-42">
+        <createTable tableName="tenant_subscription">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="tenant_subscription_pkey"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="multi_tenancy_strategy" type="VARCHAR(255)"/>
+            <column name="product_database_max_pool_size" type="INTEGER"/>
+            <column name="product_database_password" type="VARCHAR(255)"/>
+            <column name="product_database_schema" type="VARCHAR(255)"/>
+            <column name="product_database_type" type="VARCHAR(255)"/>
+            <column name="product_database_url" type="VARCHAR(255)"/>
+            <column name="product_database_username" type="VARCHAR(255)"/>
+            <column name="product_expiry_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="product_status" type="VARCHAR(255)"/>
+            <column name="product_id" type="VARCHAR(255)"/>
+            <column name="tenant_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-43">
+        <createTable tableName="user_roles">
+            <column name="users_id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="user_roles_pkey"/>
+            </column>
+            <column name="roles_id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="user_roles_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-44">
+        <createTable tableName="users">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="employee_id" type="VARCHAR(255)"/>
+            <column name="expiration_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_login" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="mobile" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="real_name" type="VARCHAR(255)"/>
+            <column name="opt_lock" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-45">
+        <createTable tableName="vip_status_setting">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="vip_status_setting_pkey"/>
+            </column>
+            <column name="color" type="VARCHAR(255)"/>
+            <column name="resort" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vip_status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vip_status_desc" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-46">
+        <addUniqueConstraint columnNames="name" constraintName="uk3g1j96g94xpk3lpxl2qbl985x" tableName="users"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-47">
+        <addUniqueConstraint columnNames="resort, member_level_desc" constraintName="uk7722r2tuvabcui6qcff1gu1ym" tableName="member_level_setting"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-48">
+        <addUniqueConstraint columnNames="name" constraintName="uk_3g1j96g94xpk3lpxl2qbl985x" tableName="users"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-49">
+        <addUniqueConstraint columnNames="code" constraintName="uk_977xcn6kkg04ibee1ie29tnem" tableName="package"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-50">
+        <addUniqueConstraint columnNames="name" constraintName="uk_cgt9gyvfv79qbool813wsyowb" tableName="security_user"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-51">
+        <addUniqueConstraint columnNames="code" constraintName="uk_egl5of52aldewjtfss34en0yi" tableName="location"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-52">
+        <addUniqueConstraint columnNames="code, resort" constraintName="uk_fvqfpva6hrmp6j8ro3rxybyk9" tableName="package_setting"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-53">
+        <addUniqueConstraint columnNames="code" constraintName="uk_ndmw96jtvo3mq70rcdifvhmbi" tableName="location"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-54">
+        <addUniqueConstraint columnNames="name" constraintName="uk_ofx66keruapi6vyqpv6f2or37" tableName="roles"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-55">
+        <addUniqueConstraint columnNames="name" constraintName="uk_p5gfefl1e6sni2qawe4h8i3sa" tableName="security_role"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-56">
+        <addUniqueConstraint columnNames="code" constraintName="uk_y5pw1897jyr6wqbprxgd0ife" tableName="package"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-57">
+        <addUniqueConstraint columnNames="name" constraintName="ukcgt9gyvfv79qbool813wsyowb" tableName="security_user"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-58">
+        <addUniqueConstraint columnNames="resort, vip_status" constraintName="ukm4o2p8kyky2rg5hq81on0obdn" tableName="vip_status_setting"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-59">
+        <addUniqueConstraint columnNames="name" constraintName="ukofx66keruapi6vyqpv6f2or37" tableName="roles"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-60">
+        <addUniqueConstraint columnNames="name" constraintName="ukp5gfefl1e6sni2qawe4h8i3sa" tableName="security_role"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-61">
+        <addUniqueConstraint columnNames="confirmation_id, business_date, resv_name_id, source_type, resort" constraintName="ukrg0ejcnfqft5wn4qhvhlaviq2" tableName="reservation_daily"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-62">
+        <createIndex indexName="aaa" tableName="consumption_daily">
+            <column name="room_no"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-63">
+        <createIndex indexName="business_date_idx" tableName="activity_logger">
+            <column name="business_date_idx"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-64">
+        <createIndex indexName="consumption_daily_bizdate_idx" tableName="consumption_daily">
+            <column name="business_date"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-65">
+        <createIndex indexName="consumption_daily_main_idx" tableName="consumption_daily">
+            <column name="room_no"/>
+            <column name="business_date"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-66">
+        <createIndex indexName="consumption_daily_rm_biz_loc_idx" tableName="consumption_daily">
+            <column name="room_no"/>
+            <column name="business_date"/>
+            <column name="location_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-67">
+        <createIndex indexName="reservation_daily_confimid_idx" tableName="reservation_daily">
+            <column name="confirmation_id"/>
+            <column name="business_date"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-68">
+        <createIndex indexName="reservation_daily_resvid_idx" tableName="reservation_daily">
+            <column name="resv_name_id"/>
+            <column name="business_date"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-69">
+        <createIndex indexName="reservation_daily_roomno_idx" tableName="reservation_daily">
+            <column name="room_no"/>
+            <column name="business_date"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-70">
+        <createIndex indexName="reservation_ifc_key_idx" tableName="reservation_ifc_key">
+            <column name="resort"/>
+            <column name="track2"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-71">
+        <createIndex indexName="reservation_pkg_daily_businessdate_idx" tableName="reservation_package_daily">
+            <column name="business_date"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-72">
+        <createIndex indexName="reservation_pkg_daily_join_key_idx" tableName="reservation_package_daily">
+            <column name="reservation_daily_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-73">
+        <createIndex indexName="reservation_pkg_daily_pkg_businessdate_idx" tableName="reservation_package_daily">
+            <column name="package_code"/>
+            <column name="business_date"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-74">
+        <createIndex indexName="reservation_room_card_id_key_idx" tableName="reservation_room_card_id">
+            <column name="resort"/>
+            <column name="room_card_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-75">
+        <addForeignKeyConstraint baseColumnNames="users_id" baseTableName="security_user_location" constraintName="fk2q9fkwan9s27vl62uk1chxlq8" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="security_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-76">
+        <addForeignKeyConstraint baseColumnNames="users_id" baseTableName="security_user_roles" constraintName="fk54sb23nl8vs3f7xb8weid0nl0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="security_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-77">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="jwt_appid" constraintName="fk7uf7eym8jrcutc8da1kp1fj6j" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="location" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-78">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="tenant_subscription" constraintName="fkbsxgv12ou6rcmkx12rhl6yahg" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-79">
+        <addForeignKeyConstraint baseColumnNames="roles_id" baseTableName="user_roles" constraintName="fkdbv8tdyltxa1qjmfnj9oboxse" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="roles" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-80">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="security_permissions" constraintName="fke6fs0oy7ouxvcrjfocqg0rnhh" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="security_role" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-81">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="security_user_location" constraintName="fke8bscu2hp7ufrufdjpxet5bcl" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="location" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-82">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="jwt_location" constraintName="fkevscra0heup3p5vhv4smbca4h" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="location" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-83">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="product_permission" constraintName="fkf0eddjxxafo9bql4xk2pm1gd1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-84">
+        <addForeignKeyConstraint baseColumnNames="package_group" baseTableName="package_setting" constraintName="fkg345twniqin1a0noowyodke0k" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="package_group" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-85">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="location_serving_period" constraintName="fkhtri3iwjhqfafry5ryp2yy4fh" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="location" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-86">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="location_order_item" constraintName="fki6w56f0xjrgofm37xdbhfk54h" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="location" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-87">
+        <addForeignKeyConstraint baseColumnNames="app_id" baseTableName="jwt_location" constraintName="fkkymmufdpyy92wbdvn633glalo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="app_id" referencedTableName="jwt_appid" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-88">
+        <addForeignKeyConstraint baseColumnNames="reservation_daily_id" baseTableName="reservation_daily_package" constraintName="fkmh477gmdxvyo9kga4fbiumeim" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="reservation_daily" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-89">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="permissions" constraintName="fkmvliun0ngpho0bltt7j6ycqgc" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="roles" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-90">
+        <addForeignKeyConstraint baseColumnNames="users_id" baseTableName="user_roles" constraintName="fkoovdgg7vvr1hb8vw6ivcrv3tb" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-91">
+        <addForeignKeyConstraint baseColumnNames="package_group" baseTableName="package" constraintName="fkpdiaj7rc0dyncidm83kj93eg4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="package_group" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-92">
+        <addForeignKeyConstraint baseColumnNames="roles_id" baseTableName="security_user_roles" constraintName="fkpeipgir7x1pwerspyimiq6pef" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="security_role" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-93">
+        <addForeignKeyConstraint baseColumnNames="reservation_daily_id" baseTableName="reservation_package_daily" constraintName="fkq8rn8l6s8yohas7lfawgtflio" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="reservation_daily" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-94">
+        <addForeignKeyConstraint baseColumnNames="tenant_id" baseTableName="tenant_subscription" constraintName="fkr7878saljat5u6091vd4qvwbd" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tenant" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-95">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="location_package" constraintName="fkr9sv4obnfdew3vgko2gnnq7bu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="location" validate="true"/>
+    </changeSet>
+    <changeSet author="Z (generated)" id="1547190829009-96">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="location_packages" constraintName="fktbbnmnaijb0cq6ajnuakmbqd2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="location" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

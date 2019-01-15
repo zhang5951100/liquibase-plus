@@ -319,55 +319,27 @@
         </div>
 
         <div class="mainWrap navslide">
-            <div class="ui equal width left aligned padded grid stackable">
 
-                <div class="row">
-                    <div id="init_form" class="sixteen wide tablet eight wide computer column">
-                        <div class="ui segments">
-                            <div class="ui segment">
-                                <h3 class="ui header">
-                                    初始化 Liquibase
-                                </h3>
-                            </div>
-                            <div class="ui form segment form5">
-                                <div class="two fields">
-                                    <div class="field">
-                                        <label>Database</label>
-                                        <div class="ui selection dropdown" tabindex="0">
-                                            <input name="driver" id="driver" type="hidden">
-                                            <div class="default text">Database</div>
-                                            <i class="dropdown icon"></i>
-                                            <div class="menu" tabindex="-1">
-                                                <div class="item" data-value="org.postgresql.Driver">Postgres</div>
-                                                <div class="item"
-                                                     data-value="com.microsoft.sqlserver.jdbc.SQLServerDriver">SQLServer
-                                                </div>
-                                                <div class="item" data-value="com.mysql.cj.jdbc.Driver">Mysql</div>
-                                                <div class="item" data-value="org.h2.Driver">H2</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <label>Url</label>
-                                        <input placeholder="url" id="url" name="url" type="text">
+            <div class="ui equal width left aligned padded grid stackable">
+                <div style="padding: 10px">
+                    <div class="row">
+                        <div class="sixteen wide tablet sixteen wide computer column">
+                            <div class="ui segments" style="width: 1300px;">
+                                <div class="ui segment">
+                                    <h3 class="ui header">
+                                        Changelog 日志详情
+                                    </h3>
+                                </div>
+
+                                <div class="ui segment">
+                                    <div id="test">
+
                                     </div>
                                 </div>
-                                <div class="two fields">
-                                    <div class="field">
-                                        <label>Username</label>
-                                        <input placeholder="username" id="username" name="username" type="text">
-                                    </div>
-                                    <div class="field">
-                                        <label>Password</label>
-                                        <input placeholder="password" id="password" name="username" type="text">
-                                    </div>
-                                </div>
-                                <div id="a" class="ui blue submit button" onclick="initialize()">提交</div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -386,40 +358,71 @@
 <script src="js/main.js"></script>
 
 <script>
-    function initialize() {
-        var cmd = {};
-        cmd["driver"] = $("#driver").val();
-        cmd["url"] = $("#url").val();
-        cmd["username"] = $("#username").val();
-        cmd["password"] = $("#password").val();
-        var driver = cmd.driver;
-        var url = cmd.url;
-        var username = cmd.username;
-        var password = cmd.password;
-        if (driver != null && driver !== "" &&
-            url != null && url !== "" &&
-            username != null && username !== "" &&
-            password != null && password !== "") {
-            $.ajax({
-                contentType: 'application/json;charset=utf-8',
-                url: "/command/init",
-                type: "post",
-                data: JSON.stringify(cmd),
-                success: function (data) {
-                    loadDetail()
-                },
-                error: function (data) {
-                    alert("配置有误!")
-                }
+    $(function () {
+        $.ajax({
+            url: "/command/changeLog",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                showData(data);
+            },
+            error: function (msg) {
+                alert("数据异常!");
+            }
+        });
+    });
 
-            });
-        }
+    //展示数据
+    function showData(data) {
+        data.changeSetList.forEach(function (item, index) {
+            document.getElementById("test").innerHTML = $("#test").html()
+                + '<div class="title"><h4>' + 'ID:' + item.id + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author:' + item.author + '</h4></div>';
+            if (item.tagDatabase != null) {
+                document.getElementById("test").innerHTML = $("#test").html()
+                    + '<div class="content"><p>TagDatabase</p><table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">' +
+                    '<thead><tr><th>Tag</th></tr></thead>' +
+                    '<tbody><tr><td>' + item.tagDatabase.tag + '</td></tr></tbody></table></div>'
+            }
+            if (item.createTable != null) {
+                document.getElementById("test").innerHTML = $("#test").html()
+                    + '<div class="content"><span>CreateTable -- </span><span style="background-color: #6bbbad">' + item.createTable.tableName + '</span><table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">' +
+                    '<thead><tr><th>Column</th><th>Type</th></tr></thead>' +
+                    '<tbody>'+'<tr><td>111</td></tr>
+                // if (item.createTable.columnList != null) {
+                //     item.createTable.columnList.forEach(function (column,index) {
+                //         document.getElementById("test").innerHTML = $("#test").html() +
+                //             '<tr><td>' + column.name + '</td></tr>'
+                //     })
+                //
+                // }
+                document.getElementById("test").innerHTML = $("#test").html() + '</tbody></table></div>'
+            }
+
+        })
     }
 
-    function loadDetail() {
-        window.location.href = "detail.html";
-    }
-
+    //
+    // function execute() {
+    //     var cmd = {};
+    //     cmd["command"] = $("#command").val();
+    //     cmd["parameter"] = $("#parameter").val();
+    //     var command = cmd.command;
+    //     if (command != null && command !== "") {
+    //         $.ajax({
+    //             contentType: 'application/json;charset=utf-8',
+    //             url: "/command/execute",
+    //             type: "post",
+    //             data: JSON.stringify(cmd),
+    //             success: function (data) {
+    //                 alert("执行成功!")
+    //             },
+    //             error: function (data) {
+    //                 alert("执行失败!")
+    //             }
+    //
+    //         });
+    //     }
+    // }
 </script>
 </body>
 </html>

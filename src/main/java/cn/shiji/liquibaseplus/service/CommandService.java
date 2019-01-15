@@ -21,7 +21,8 @@ public class CommandService {
 	public void init(WinCommand winCommand) {
 		WinCommand instance = WinCommand.getInstance();
 		BeanUtils.copyProperties(winCommand, instance);
-		instance.setChangeLogFile("changelog.xml");
+//		instance.setChangeLogFile("changelog.xml");
+		instance.setChangeLogFile("changelogOriginal.xml");
 		switch (winCommand.getDriver()) {
 			case "org.postgresql.Driver":
 				instance.setClasspath("lib/postgresql.jar");
