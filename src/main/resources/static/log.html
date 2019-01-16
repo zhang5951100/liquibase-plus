@@ -332,7 +332,7 @@
                                 </div>
 
                                 <div class="ui segment">
-                                    <div id="test">
+                                    <div id="log">
 
                                     </div>
                                 </div>
@@ -374,55 +374,56 @@
 
     //展示数据
     function showData(data) {
+        var i = 0;
         data.changeSetList.forEach(function (item, index) {
-            document.getElementById("test").innerHTML = $("#test").html()
+            i++;
+            document.getElementById("log").innerHTML = $("#log").html()
                 + '<div class="title"><h4>' + 'ID:' + item.id + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author:' + item.author + '</h4></div>';
             if (item.tagDatabase != null) {
-                document.getElementById("test").innerHTML = $("#test").html()
-                    + '<div class="content"><p>TagDatabase</p><table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">' +
+                document.getElementById("log").innerHTML = $("#log").html()
+                    + '<div class="content"><p>TagDatabase</p><table class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">' +
                     '<thead><tr><th>Tag</th></tr></thead>' +
                     '<tbody><tr><td>' + item.tagDatabase.tag + '</td></tr></tbody></table></div>'
             }
             if (item.createTable != null) {
-                document.getElementById("test").innerHTML = $("#test").html()
-                    + '<div class="content"><span>CreateTable -- </span><span style="background-color: #6bbbad">' + item.createTable.tableName + '</span><table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">' +
-                    '<thead><tr><th>Column</th><th>Type</th></tr></thead>' +
-                    '<tbody>'+'<tr><td>111</td></tr>
-                // if (item.createTable.columnList != null) {
-                //     item.createTable.columnList.forEach(function (column,index) {
-                //         document.getElementById("test").innerHTML = $("#test").html() +
-                //             '<tr><td>' + column.name + '</td></tr>'
-                //     })
-                //
-                // }
-                document.getElementById("test").innerHTML = $("#test").html() + '</tbody></table></div>'
+                document.getElementById("log").innerHTML = $("#log").html()
+                    + '<div class="content"><span>CreateTable -- </span><span style="background-color: #6bbbad">' + item.createTable.tableName + '</span><table id="data_table' + i + '" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">' +
+                    '<thead><tr><th style="width: 50%;">Column</th><th>Type</th></tr></thead>' +
+                    '<tbody>'
+                if (item.createTable.columnList != null) {
+                    item.createTable.columnList.forEach(function (column, index) {
+                        document.getElementById("data_table" + i).innerHTML = $("#data_table" + i).html() +
+                            '<tr><td>' + column.name + '</td><td>' + column.type + '</td></tr>'
+                    })
+
+                }
+                document.getElementById("log").innerHTML = $("#log").html() + '</tbody></table></div>'
+            }
+
+            if (item.addUniqueConstraint != null) {
+                document.getElementById("log").innerHTML = $("#log").html()
+                    + '<div class="content"><p>AddUniqueConstraint</p><table class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">' +
+                    '<thead><tr><th style="width: 33%;">ColumnNames</th><th style="width: 33%;">ConstraintName</th><th>TableName</th></tr></thead>' +
+                    '<tbody><tr><td>' + item.addUniqueConstraint.columnNames + '</td><td>' + item.addUniqueConstraint.constraintName + '</td><td>' + item.addUniqueConstraint.tableName + '</td></tr></tbody></table></div>'
+            }
+
+            if (item.createIndex != null) {
+                document.getElementById("log").innerHTML = $("#log").html()
+                    + '<div class="content"><p>CreateIndex</p><table class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">' +
+                    '<thead><tr><th style="width: 33%;">IndexName</th><th style="width: 33%;">TableName</th></tr></thead>' +
+                    '<tbody><tr><td>' + item.createIndex.indexName + '</td><td>' + item.createIndex.tableName + '</td></tr></tbody></table></div>'
+            }
+
+            if (item.addForeignKeyConstraint != null) {
+                document.getElementById("log").innerHTML = $("#log").html()
+                    + '<div class="content"><p>AddForeignKeyConstraint</p><table class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">' +
+                    '<thead><tr><th>BaseColumnNames</th><th>BaseTableName</th><th>ConstraintName</th><th>Deferrable</th><th>InitiallyDeferred</th><th>OnDelete</th><th>OnUpdate</th><th>ReferencedColumnNames</th><th>ReferencedTableName</th><th>Validate</th></tr></thead>' +
+                    '<tbody><tr><td>' + item.addForeignKeyConstraint.baseColumnNames + '</td><td>' + item.addForeignKeyConstraint.baseTableName + '</td><td>' + item.addForeignKeyConstraint.constraintName + '</td><td>' + item.addForeignKeyConstraint.deferrable + '</td><td>' + item.addForeignKeyConstraint.initiallyDeferred + '</td><td>' + item.addForeignKeyConstraint.onDelete + '</td><td>' + item.addForeignKeyConstraint.onUpdate + '</td><td>' + item.addForeignKeyConstraint.referencedColumnNames + '</td><td>' + item.addForeignKeyConstraint.referencedTableName + '</td><td>' + item.addForeignKeyConstraint.validate + '</td></tr></tbody></table></div>'
             }
 
         })
     }
 
-    //
-    // function execute() {
-    //     var cmd = {};
-    //     cmd["command"] = $("#command").val();
-    //     cmd["parameter"] = $("#parameter").val();
-    //     var command = cmd.command;
-    //     if (command != null && command !== "") {
-    //         $.ajax({
-    //             contentType: 'application/json;charset=utf-8',
-    //             url: "/command/execute",
-    //             type: "post",
-    //             data: JSON.stringify(cmd),
-    //             success: function (data) {
-    //                 alert("执行成功!")
-    //             },
-    //             error: function (data) {
-    //                 alert("执行失败!")
-    //             }
-    //
-    //         });
-    //     }
-    // }
 </script>
 </body>
 </html>
