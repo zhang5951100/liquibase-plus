@@ -8,6 +8,8 @@ import com.thoughtworks.xstream.io.naming.NoNameCoder;
 import com.thoughtworks.xstream.io.xml.XppDriver;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +30,7 @@ public class ParsingXmlService {
 	public ChangeSetList xml2Bean() throws IOException {
 		WinCommand instance = WinCommand.getInstance();
 		// 引入changelog.xml
-		Resource resource = new ClassPathResource(instance.changeLogFile);
+		Resource resource = new FileSystemResource(instance.changeLogFile);
 		BufferedReader br = null;
 		br = new BufferedReader(new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8));
 		StringBuffer buffer = new StringBuffer();

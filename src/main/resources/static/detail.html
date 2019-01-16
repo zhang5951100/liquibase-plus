@@ -319,62 +319,140 @@
         </div>
 
         <div class="mainWrap navslide">
-            <div class="ui equal width left aligned padded grid stackable">
+            <div class="stretched row">
                 <div style="padding: 10px">
-                    <div class="row" style="width: 600px;">
-                        <div id="init_form" class="sixteen wide tablet eight wide computer column">
+                    <div class="ui fluid form">
+                        <div class="two fields">
                             <div class="field">
-                                <table class="ui definition table">
-                                    <tbody>
-                                    <tr>
-                                        <td class="two wide column">Database</td>
-                                        <td id="driver"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Url</td>
-                                        <td id="url"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Username</td>
-                                        <td id="username"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Password</td>
-                                        <td id="password"></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="ui form segment form5" style="height: 270px;width: 600px;">
+                                <div class="row" style="width: 650px;">
+                                    <div id="init_form" class="sixteen wide tablet eight wide computer column">
+                                        <div class="field">
+                                            <table class="ui definition table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="two wide column">Database</td>
+                                                    <td id="driver"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Url</td>
+                                                    <td id="url"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Username</td>
+                                                    <td id="username"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Password</td>
+                                                    <td id="password"></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="ui form segment form5" style="height: 270px;width: 650px;">
 
-                            <div class="field">
-                                <label>Command(必填)</label>
-                                <div class="ui selection dropdown" tabindex="0">
-                                    <input name="command" id="command" type="hidden">
-                                    <div class="default text">Command</div>
-                                    <i class="dropdown icon"></i>
-                                    <div class="menu" tabindex="-1">
-                                        <div class="item" data-value=" update">update</div>
-                                        <div class="item" data-value=" rollback">rollbackTag</div>
-                                        <div class="item" data-value=" rollbackToDate">rollbackToDate</div>
-                                        <div class="item" data-value=" rollbackCount">rollbackCount</div>
-                                        <div class="item" data-value=" dbDoc">dbDoc</div>
-                                        <div class="item" data-value=" generateChangeLog">generateChangeLog</div>
-                                        <div class="item" data-value=" tag">tag</div>
+                                        <div class="field">
+                                            <label>Command(必填)</label>
+                                            <div class="ui selection dropdown" tabindex="0">
+                                                <input name="command" id="command" type="hidden">
+                                                <div class="default text">Command</div>
+                                                <i class="dropdown icon"></i>
+                                                <div class="menu" tabindex="-1">
+                                                    <div class="item" data-value=" update">update</div>
+                                                    <div class="item" data-value=" rollback">rollbackTag</div>
+                                                    <div class="item" data-value=" rollbackToDate">rollbackToDate</div>
+                                                    <div class="item" data-value=" rollbackCount">rollbackCount</div>
+                                                    <div class="item" data-value=" dbDoc">dbDoc</div>
+                                                    <div class="item" data-value=" generateChangeLog">
+                                                        generateChangeLog
+                                                    </div>
+                                                    <div class="item" data-value=" tag">tag</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label>Parameter (选填)</label>
+                                            <input placeholder="parameter" id="parameter" name="parameter" type="text">
+                                        </div>
+
+                                        <br><br>
+                                        <div id="a" class="ui blue submit button" onclick="execute()">执行</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="field">
-                                <label>Parameter (选填)</label>
-                                <input placeholder="parameter" id="parameter" name="parameter" type="text">
+                                <div class="row" style="width: 650px;">
+                                    <div class="ui form segment form5" style="width: 600px;">
+                                        <h3>ChangeSet</h3>
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>ID</label>
+                                                <input placeholder="id" id="changeSetId" name="id" type="text">
+                                            </div>
+                                            <div class="field">
+                                                <label>Author</label>
+                                                <input placeholder="author" id="changeSetAuthor" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div id="changeSet_div" class="field">
+                                            <label>Option</label>
+                                            <div class="ui selection dropdown" tabindex="0">
+                                                <input name="option" id="option" type="hidden">
+                                                <div class="default text">Option</div>
+                                                <i class="dropdown icon"></i>
+                                                <div class="menu" tabindex="-1">
+                                                    <div class="item" data-value="createTable">createTable</div>
+                                                    <div class="item" data-value="tagDatabase">createTag</div>
+                                                    <div class="item" data-value="addForeignKeyConstraint">
+                                                        addForeignKeyConstraint
+                                                    </div>
+                                                    <div class="item" data-value="createIndex">createIndex</div>
+                                                    <div class="item" data-value="addUniqueConstraint">
+                                                        addUniqueConstraint
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div hidden id="createTable" style="padding-top: 20px">
+                                                <label>TableName</label>
+                                                <input placeholder="tableName" id="tableName" name="tableName"
+                                                       type="text">
+                                                <div class="two fields">
+                                                    <div class="field">
+                                                        <label>PrimaryKey Name</label>
+                                                        <input placeholder="PrimaryKey Name" id="primaryKeyName"
+                                                               name="columnName"
+                                                               type="text">
+                                                    </div>
+                                                    <div class="field">
+                                                        <label>PrimaryKey Type</label>
+                                                        <input placeholder="PrimaryKey Type" id="primaryKeyType"
+                                                               name="columnType" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="two fields">
+                                                    <div class="field">
+                                                        <label>ColumnName</label>
+                                                        <input placeholder="columnName" id="columnName_1" type="text">
+                                                    </div>
+                                                    <div class="field">
+                                                        <label>ColumnType</label>
+                                                        <input placeholder="columnType" id="columnType_1" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <div class="ui blue submit button" onclick="changeSet()">提交</div>
+                                    </div>
+                                </div>
+
                             </div>
-
-                            <br><br>
-                            <div id="a" class="ui blue submit button" onclick="execute()">执行</div>
                         </div>
-
                     </div>
+
                 </div>
             </div>
         </div>
@@ -437,6 +515,65 @@
             });
         }
     }
+
+
+    $(document).ready(function () {
+        $('#option').change(function () {
+            var option = $("#option").val()
+            if (option === "createTable") {
+                $("#createTable").show()
+            } else {
+                $("#createTable").hide()
+            }
+        })
+    })
+
+
+    function changeSet() {
+        var pkey = {};
+        pkey["name"] = $("#primaryKeyName").val();
+        pkey["type"] = $("#primaryKeyType").val();
+        pkey["constraints"] = {
+            "primaryKey": "true",
+            "primaryKeyName": $("#primaryKeyName").val() + $("#tableName").val()
+        };
+
+        var column = {};
+        column["name"] = $("#columnName_1").val();
+        column["type"] = $("#columnType_1").val();
+
+        var table_column = [];
+        table_column.push(pkey);
+        table_column.push(column);
+
+        var createTable = {};
+        createTable["tableName"] = $("#tableName").val();
+        createTable["columnList"] = table_column;
+
+
+        var changeSet = {};
+        changeSet["id"] = $("#changeSetId").val();
+        changeSet["author"] = $("#changeSetAuthor").val();
+        changeSet["createTable"] = createTable;
+
+
+        if (changeSet != null && changeSet !== "") {
+            $.ajax({
+                contentType: 'application/json;charset=utf-8',
+                url: "/command/changeLog",
+                type: "post",
+                data: JSON.stringify(changeSet),
+                success: function (data) {
+                    alert("成功!")
+                    // loadDetail()
+                },
+                error: function (data) {
+                    alert("配置有误!")
+                }
+            });
+        }
+    }
+
 </script>
 </body>
 </html>
