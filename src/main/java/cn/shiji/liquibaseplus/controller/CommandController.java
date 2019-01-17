@@ -70,7 +70,11 @@ public class CommandController {
 	public ResponseEntity execute(@RequestBody WinCommand winCommand) {
 		String result = commandService.execute(winCommand);
 		if (StringUtils.isNotBlank(result)) {
-			return new ResponseEntity<>(HttpStatus.OK);
+			try {
+				return new ResponseEntity<>(objectMapper.writeValueAsString(result), HttpStatus.OK);
+			} catch (JsonProcessingException ignored) {
+
+			}
 		}
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}

@@ -22,7 +22,6 @@ public class CommandService {
 		WinCommand instance = WinCommand.getInstance();
 		BeanUtils.copyProperties(winCommand, instance);
 		instance.setChangeLogFile("changelog.xml");
-//		instance.setChangeLogFile("changelogOriginal.xml");
 		switch (winCommand.getDriver()) {
 			case "org.postgresql.Driver":
 				instance.setClasspath("lib/postgresql.jar");
@@ -45,14 +44,14 @@ public class CommandService {
 	public String execute(WinCommand winCommand) {
 
 		WinCommand instance = WinCommand.getInstance();
-
+		String changeLogFile=instance.changeLogFile;
 		if (StringUtils.equals(" generateChangeLog", winCommand.getCommand())) {
-			instance.changeLogFile = winCommand.getParameter();
+			changeLogFile = winCommand.getParameter();
 		}
 
 		String command = "cmd /c liquibase "
 				//changeLog xml文件路径
-				+ "--changeLogFile=" + instance.changeLogFile
+				+ "--changeLogFile=" + changeLogFile
 				//数据库驱动
 				+ " --driver=" + instance.driver
 				//驱动文件路径
@@ -79,11 +78,11 @@ public class CommandService {
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 			while ((line = bufferedReader.readLine()) != null) {
 				sb.append(line).append("\n");
-				log.info("cmd response:{}" + line);
 			}
 		} catch (IOException e) {
 			log.error(e.getMessage());
 		}
+		log.info("cmd response:{}",sb.toString());
 		return sb.toString();
 	}
 }

@@ -320,11 +320,11 @@
 
         <div class="mainWrap navslide">
             <div class="stretched row">
-                <div style="padding: 10px">
+                <div>
                     <div class="ui fluid form">
                         <div class="two fields">
                             <div class="field">
-                                <div class="row" style="width: 650px;">
+                                <div class="row" style="width: 650px;padding: 10px;">
                                     <div id="init_form" class="sixteen wide tablet eight wide computer column">
                                         <div class="field">
                                             <table class="ui definition table">
@@ -349,7 +349,7 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="ui form segment form5" style="height: 270px;width: 650px;">
+                                    <div class="ui form segment form5" style="width: 650px;padding: 20px;">
 
                                         <div class="field">
                                             <label>Command(必填)</label>
@@ -368,21 +368,41 @@
                                                         generateChangeLog
                                                     </div>
                                                     <div class="item" data-value=" tag">tag</div>
+                                                    <div class="item" data-value=" diff">diff ( 对比数据库 )</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="field">
+                                        <br>
+                                        <div class="field" id="parameter_div">
                                             <label>Parameter (选填)</label>
                                             <input placeholder="parameter" id="parameter" name="parameter" type="text">
                                         </div>
-
+                                        <div class="field" hidden id="reference_div">
+                                            <div class="field">
+                                                <label>ReferenceUrl</label>
+                                                <input placeholder="referenceUrl" id="referenceUrl" name="referenceUrl"
+                                                       type="text">
+                                            </div>
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>ReferenceUsername</label>
+                                                    <input placeholder="referenceUsername" id="referenceUsername"
+                                                           name="referenceUsername" type="text">
+                                                </div>
+                                                <div class="field">
+                                                    <label>ReferencePassword</label>
+                                                    <input placeholder="referencePassword" id="referencePassword"
+                                                           name="referencePassword" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
                                         <br><br>
                                         <div id="a" class="ui blue submit button" onclick="execute()">执行</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="field">
-                                <div class="row" style="width: 650px;">
+                                <div class="row" style="width: 650px;padding: 10px;">
                                     <div class="ui form segment form5" style="width: 600px;">
                                         <h3>ChangeSet</h3>
                                         <div class="two fields">
@@ -459,6 +479,25 @@
         </div>
     </div>
 </div>
+<div id="show_modal" class="ui long test modal">
+    <!--<div class="header">-->
+    <!--Profile Picture-->
+    <!--</div>-->
+    <div class="image content">
+
+        <div class="description">
+            <div class="ui header">执行命令返回信息</div>
+            <!--<p>This is an example of expanded content that will cause the modal's dimmer to scroll</p>-->
+            <div id="return_div"></div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui primary approve button">
+            关闭
+            <i class="right chevron icon"></i>
+        </div>
+    </div>
+</div>
 <!--jquery-->
 <script src="js/jquery-2.1.4.min.js"></script>
 <!--jquery-->
@@ -499,6 +538,11 @@
         var cmd = {};
         cmd["command"] = $("#command").val();
         cmd["parameter"] = $("#parameter").val();
+        if ($("#command").val() === " diff") {
+            cmd["parameter"] = " --referenceUrl=" + $("#referenceUrl").val()
+                + " --referenceUsername=" + $("#referenceUsername").val()
+                + " --referencePassword=" + $("#referencePassword").val();
+        }
         var command = cmd.command;
         if (command != null && command !== "") {
             $.ajax({
@@ -506,17 +550,34 @@
                 url: "/command/execute",
                 type: "post",
                 data: JSON.stringify(cmd),
+                dataType: "json",
                 success: function (data) {
-                    alert("执行成功!")
+                    console.log(data);
+                    document.getElementById("return_div").innerText = data;
+                    $('#show_modal').modal('toggle')
                 },
                 error: function (data) {
-                    alert("执行失败!")
+                    console.log(data);
+                    document.getElementById("return_div").innerText = data;
+                    $('#show_modal').modal('toggle')
                 }
 
             });
         }
     }
 
+    $(document).ready(function () {
+        $('#command').change(function () {
+            var command = $("#command").val()
+            if (command === " diff") {
+                $("#parameter_div").hide()
+                $("#reference_div").show()
+            } else {
+                $("#parameter_div").show()
+                $("#reference_div").hide()
+            }
+        })
+    })
 
     $(document).ready(function () {
         $('#option').change(function () {
