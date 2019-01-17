@@ -463,6 +463,11 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div hidden id="tagDatabase" style="padding-top: 20px">
+                                                <label>Tag</label>
+                                                <input placeholder="tag" id="tag" name="tag"
+                                                       type="text">
+                                            </div>
                                         </div>
 
                                         <br>
@@ -581,17 +586,25 @@
 
     $(document).ready(function () {
         $('#option').change(function () {
-            var option = $("#option").val()
+            var option = $("#option").val();
             if (option === "createTable") {
                 $("#createTable").show()
             } else {
                 $("#createTable").hide()
+            }
+            if (option === "tagDatabase") {
+                $("#tagDatabase").show()
+            } else {
+                $("#tagDatabase").hide()
             }
         })
     })
 
 
     function changeSet() {
+        var tagDatabase = {};
+        tagDatabase["tag"] = $("#tag").val();
+
         var pkey = {};
         pkey["name"] = $("#primaryKeyName").val();
         pkey["type"] = $("#primaryKeyType").val();
@@ -616,10 +629,15 @@
         var changeSet = {};
         changeSet["id"] = $("#changeSetId").val();
         changeSet["author"] = $("#changeSetAuthor").val();
-        changeSet["createTable"] = createTable;
+        if ($("#option").val() === "createTable") {
+            changeSet["createTable"] = createTable;
+        }
+        if ($("#option").val() === "tagDatabase") {
+            changeSet["tagDatabase"] = tagDatabase;
+        }
 
 
-        if (changeSet != null && changeSet !== "") {
+        if ($("#option").val() != null && $("#option").val() !== "") {
             $.ajax({
                 contentType: 'application/json;charset=utf-8',
                 url: "/command/changeLog",
